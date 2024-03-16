@@ -94,7 +94,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="mx-auto h-screen">
+    <div className="mx-auto h-screen overflow-y-scroll">
       <Snackbar
         open={isSuccessOpen}
         autoHideDuration={3000}
@@ -113,7 +113,7 @@ const BookingForm = () => {
       <h2 className="text-center text-xl font-bold my-[5%]">
         Fill the below form
       </h2>
-      <div className="flex justify-center items-center ">
+      <div className="flex justify-center items-center mb-5">
         <form
           onSubmit={handleSubmit}
           className=" border p-5 rounded-md bg-gray-100"
@@ -128,9 +128,9 @@ const BookingForm = () => {
                   </label>
                   <TextField
                     type="text"
-                    label="Name"
                     id="name"
                     name="name"
+                    size="small"
                     value={formData.name}
                     onChange={handleChange}
                     variant="outlined"
@@ -145,6 +145,7 @@ const BookingForm = () => {
                     type="number"
                     id="phone"
                     name="phone"
+                    size="small"
                     value={formData.phone}
                     onChange={handleChange}
                     variant="outlined"
@@ -170,6 +171,7 @@ const BookingForm = () => {
                     type="text"
                     id="otp"
                     name="otp"
+                    size="small"
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)}
                     variant="outlined"
@@ -197,6 +199,7 @@ const BookingForm = () => {
                     type="email"
                     id="email"
                     name="email"
+                    size="small"
                     value={formData.email}
                     onChange={handleChange}
                     variant="outlined"
@@ -210,6 +213,7 @@ const BookingForm = () => {
                   <Select
                     id="gender"
                     name="gender"
+                    size="small"
                     value={formData.gender}
                     onChange={handleChange}
                     variant="outlined"
@@ -234,6 +238,7 @@ const BookingForm = () => {
                     type="time"
                     id="timeFrom"
                     name="timeFrom"
+                    size="small"
                     value={formData.timeFrom}
                     onChange={handleTimeChange}
                     variant="outlined"
@@ -248,6 +253,7 @@ const BookingForm = () => {
                     type="time"
                     id="timeTo"
                     name="timeTo"
+                    size="small"
                     value={formData.timeTo}
                     onChange={handleTimeChange}
                     variant="outlined"
@@ -262,6 +268,7 @@ const BookingForm = () => {
                     type="number"
                     id="numberOfPersons"
                     name="numberOfPersons"
+                    size="small"
                     min="1"
                     value={formData.numberOfPersons}
                     onChange={handlePersonChange}
@@ -276,6 +283,7 @@ const BookingForm = () => {
                   <Select
                     id="paymentMethod"
                     name="paymentMethod"
+                    size="small"
                     value={formData.paymentMethod}
                     onChange={handleChange}
                     variant="outlined"
@@ -295,6 +303,7 @@ const BookingForm = () => {
                     type="text"
                     id="totalAmount"
                     name="totalAmount"
+                    size="small"
                     value={totalAmount}
                     readOnly
                     variant="outlined"
