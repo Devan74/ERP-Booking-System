@@ -215,10 +215,6 @@ const BookingForm = () => {
                     onChange={handleChange}
                     variant="outlined"
                     fullWidth
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent event from reaching the Popup
-                      // Add your item selection logic here
-                    }}
                   >
                     <MenuItem value="">Select</MenuItem>
                     <MenuItem value="male">Male</MenuItem>
