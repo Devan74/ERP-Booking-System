@@ -95,7 +95,7 @@ const BookingSystem = () => {
         closeTime="9:00 PM"
       />
       <div className="grid grid-cols-5 gap-2 p-3">
-        <div className="h-[80vh] col-span-1 bg-gray-100 rounded-lg">
+        <div className="h-[88vh] col-span-1 bg-gray-100 rounded-lg">
           <div className="flex flex-col gap-2 p-3">
             {spaces.map((space, index) => (
               <div
@@ -129,7 +129,7 @@ const BookingSystem = () => {
             />
           </LocalizationProvider>
         </div>
-        <div className="h-[80vh] bg-gray-100 rounded-lg">
+        <div className="h-[88vh] bg-gray-100 rounded-lg">
           <h2 className="font-bold mb-2 text-center p-2">
             Available Time Slots for{" "}
             {selectedDate
@@ -137,7 +137,7 @@ const BookingSystem = () => {
               : "Invalid Date"}
           </h2>
           {/* {console.log("Selected Date in JSX:", selectedDate)} */}
-          <div className="h-[60vh] overflow-y-scroll flex justify-center">
+          <div className="h-[70vh] overflow-y-scroll flex justify-center">
             <div className="grid grid-col gap-3">
               {availableSlots.map((slot, index) => (
                 <Slot

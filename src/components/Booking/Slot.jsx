@@ -2,6 +2,7 @@ import React from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import BookingForm from "./BookingForm";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const Slot = ({ slot, onBooking }) => {
   return (
@@ -20,8 +21,21 @@ const Slot = ({ slot, onBooking }) => {
       >
         {slot.booked ? "Booked" : "Available"}
       </span> */}
-      <Popup trigger={<button>{slot.time}</button>} position="center" modal={true}>
-        <BookingForm/>
+      <Popup
+        trigger={<button>{slot.time}</button>}
+        position="center"
+        modal={true}
+        closeOnDocumentClick={false}
+        closeOnEscape={false}
+      >
+        {(close) => (
+          <div className="">
+            <div className="relative top-[1rem] right-[-92%] rounded-full" onClick={close}>
+            <IoMdCloseCircleOutline className="text-2xl cursor-pointer hover:text-red-500 my-auto " />
+            </div>
+            <BookingForm />
+          </div>
+        )}
       </Popup>
     </div>
   );

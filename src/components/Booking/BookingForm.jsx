@@ -73,8 +73,7 @@ const BookingForm = () => {
   };
 
   const handleSendOtp = () => {
-    // Simulating OTP generation and sending
-    console.log("OTP Sent");
+    console.log("OTP Sent 1234");
     setOtpSent(true);
     setOtpExpired(false);
     setTimeout(() => {
@@ -94,7 +93,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="mx-auto h-screen overflow-y-scroll">
+    <div className="mx-auto h-screen  overflow-y-scroll pb-12">
       <Snackbar
         open={isSuccessOpen}
         autoHideDuration={3000}
@@ -151,15 +150,29 @@ const BookingForm = () => {
                     variant="outlined"
                     fullWidth
                   />
-                  <span className="flex justify-end ">
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="email" className="block">
+                    Email:
+                  </label>
+                  <TextField
+                    type="email"
+                    id="email"
+                    name="email"
+                    size="small"
+                    value={formData.email}
+                    onChange={handleChange}
+                    variant="outlined"
+                    fullWidth
+                  />
+                   <span className="flex justify-end ">
                     <div className="">
-                      <a
-                        variant="text"
-                        className="text-blue-500"
+                      <span
+                        className="text-xs underline text-blue-500 cursor-pointer"
                         onClick={handleSendOtp}
                       >
                         Send OTP
-                      </a>
+                      </span>
                     </div>
                   </span>
                 </div>
@@ -180,31 +193,15 @@ const BookingForm = () => {
                   <span className="flex justify-end">
                     {otpExpired && (
                       <div className="">
-                        <a
-                          variant="text"
-                          className="text-blue-500"
+                        <span
+                          className="text-xs underline text-blue-500 cursor-pointer"
                           onClick={handleSendOtp}
                         >
                           Resend OTP
-                        </a>
+                        </span>
                       </div>
                     )}
                   </span>
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block">
-                    Email:
-                  </label>
-                  <TextField
-                    type="email"
-                    id="email"
-                    name="email"
-                    size="small"
-                    value={formData.email}
-                    onChange={handleChange}
-                    variant="outlined"
-                    fullWidth
-                  />
                 </div>
                 <div className="mb-4">
                   <label htmlFor="gender" className="block">
@@ -218,6 +215,10 @@ const BookingForm = () => {
                     onChange={handleChange}
                     variant="outlined"
                     fullWidth
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent event from reaching the Popup
+                      // Add your item selection logic here
+                    }}
                   >
                     <MenuItem value="">Select</MenuItem>
                     <MenuItem value="male">Male</MenuItem>
@@ -265,13 +266,28 @@ const BookingForm = () => {
                     Number of Persons:
                   </label>
                   <TextField
-                    type="number"
+                    type="text"
                     id="numberOfPersons"
                     name="numberOfPersons"
                     size="small"
                     min="1"
                     value={formData.numberOfPersons}
                     onChange={handlePersonChange}
+                    variant="outlined"
+                    fullWidth
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="totalAmount" className="block">
+                    Total Amount:
+                  </label>
+                  <TextField
+                    type="text"
+                    id="totalAmount"
+                    name="totalAmount"
+                    size="small"
+                    value={totalAmount}
+                    readOnly
                     variant="outlined"
                     fullWidth
                   />
@@ -292,23 +308,8 @@ const BookingForm = () => {
                     <MenuItem value="">Select Payment Method</MenuItem>
                     <MenuItem value="upi">UPI</MenuItem>
                     <MenuItem value="cash">Cash</MenuItem>
-                    <MenuItem value="cards">Cridit / Debit card</MenuItem>
+                    <MenuItem value="cards">Credit / Debit card</MenuItem>
                   </Select>
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="totalAmount" className="block">
-                    Total Amount:
-                  </label>
-                  <TextField
-                    type="text"
-                    id="totalAmount"
-                    name="totalAmount"
-                    size="small"
-                    value={totalAmount}
-                    readOnly
-                    variant="outlined"
-                    fullWidth
-                  />
                 </div>
               </div>
             </div>
